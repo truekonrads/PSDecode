@@ -533,7 +533,7 @@ function PSDecode {
         $layers.Add($encoded_script)
         
         $pinfo = New-Object System.Diagnostics.ProcessStartInfo
-        $pinfo.FileName = "powershell.exe"
+        $pinfo.FileName = [System.Diagnostics.Process]::GetCurrentProcess().MainModule.FileName
         $pinfo.CreateNoWindow = $true
         $pinfo.RedirectStandardError = $true
         $pinfo.RedirectStandardOutput = $true
